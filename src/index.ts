@@ -1,0 +1,1 @@
+export { HTMLTextEditor } from './components/HTMLTextEditor'

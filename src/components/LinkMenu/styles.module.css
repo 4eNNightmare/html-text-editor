@@ -1,0 +1,118 @@
+.MenuContainer {
+  position: absolute;
+  inset: 0;
+}
+
+.MenuScrim {
+  position: absolute;
+  inset: 0;
+}
+
+.MenuSurface {
+  position: absolute;
+  top: var(--hte-menu-top);
+  left: var(--hte-menu-left);
+  background-color: var(--hte-surface);
+  border-radius: 4px;
+  padding: 8px 12px;
+  box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%),
+    0 3px 14px 2px rgb(0 0 0 / 12%);
+  width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.MenuSurface > .Input {
+  flex: 1;
+}
+
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-sizing: border-box;
+  height: 48px;
+  height: 48px;
+  padding: 12px;
+  cursor: pointer;
+  outline: none;
+  display: inline;
+  background: none;
+  color: var(--hte-on-surface);
+  background-color: var(--hte-surface);
+  transition: color 150ms ease;
+}
+
+.Button:hover {
+  background-color: var(--hte-hover);
+}
+
+.Button.Selected {
+  background-color: var(--hte-secondary-container);
+  color: var(--hte-on-secondary-container);
+}
+
+.Group {
+  border: 1px solid var(--hte-outline);
+  background-color: var(--hte-surface);
+  overflow: hidden;
+  border-radius: var(--hte-border-radius);
+}
+
+.Group > .Button {
+  border-left: 1px solid var(--hte-outline);
+}
+
+.Group > .Button:nth-child(1) {
+  border-left: none;
+}
+
+.Input {
+  margin-top: 4px;
+  border: 1px solid var(--hte-outline);
+  border-radius: 4px;
+  padding: 16px;
+  outline: none;
+  transition: border 150ms ease;
+  background-color: var(--hte-surface);
+  color: var(--hte-on-surface);
+  caret-color: var(--hte-primary);
+  box-sizing: border-box;
+  min-height: 56px;
+  transition: opacity 150ms ease, padding 150ms linear, border 150ms linear;
+  position: relative;
+  overflow: hidden;
+}
+
+.Input::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: background-color 150ms ease;
+  pointer-events: none;
+}
+
+.Input:empty::before {
+  content: attr(placeholder);
+  opacity: 0.6;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.Input:not(:hover):not(:focus) {
+  opacity: 0.8;
+}
+
+.Input:hover:not(:focus):after {
+  background-color: var(--hte-hover);
+}
+
+.Input:focus {
+  padding: 15px;
+  border: 2px solid var(--hte-primary);
+}

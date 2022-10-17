@@ -1,0 +1,54 @@
+.Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  box-sizing: border-box;
+  height: 48px;
+  height: 48px;
+  padding: 12px;
+  cursor: pointer;
+  outline: none;
+  display: inline;
+  background: none;
+  color: var(--hte-on-surface);
+  background-color: var(--hte-surface);
+  transition: color 150ms ease;
+}
+
+.Button:hover {
+  background-color: var(--hte-hover);
+}
+
+.Button.Selected {
+  background-color: var(--hte-secondary-container);
+  color: var(--hte-on-secondary-container);
+}
+
+.Group {
+  border: 1px solid var(--hte-outline);
+  background-color: var(--hte-surface);
+  overflow: hidden;
+  border-radius: var(--hte-border-radius);
+  flex-shrink: 0;
+}
+
+.Group:not(:has(.Button)) {
+  display: none;
+}
+
+.Group > .Button {
+  border-left: 1px solid var(--hte-outline);
+}
+
+.Group > .Button:nth-child(1) {
+  border-left: none;
+}
+
+.Header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  justify-content: var(--hte-header-justify-content, left);
+}

@@ -1,0 +1,46 @@
+.Input {
+  margin-top: 4px;
+  border: 1px solid var(--hte-outline);
+  border-radius: 4px;
+  padding: 16px;
+  outline: none;
+  transition: border 150ms ease;
+  background-color: var(--hte-surface);
+  color: var(--hte-on-surface);
+  caret-color: var(--hte-primary);
+  box-sizing: border-box;
+  min-height: 56px;
+  transition: opacity 150ms ease, padding 150ms linear, border 150ms linear;
+  position: relative;
+  overflow: hidden;
+}
+
+.Input::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transition: background-color 150ms ease;
+  pointer-events: none;
+}
+
+.Input:empty::before {
+  content: attr(placeholder);
+  opacity: 0.6;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.Input:not(:hover):not(:focus) {
+  opacity: 0.8;
+}
+
+.Input:hover:not(:focus):after {
+  background-color: var(--hte-hover);
+}
+
+.Input:focus {
+  padding: 15px;
+  border: 2px solid var(--hte-primary);
+}
